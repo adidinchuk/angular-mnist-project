@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row justify-content-center padding-top">
+    <h4>Draw a digit 0-9 below for clasification</h4>
+  </div>
+  <div class="row justify-content-center padding-top">
+    <div class="col-xs">
+      <app-canvas #input_canvas [draw]=true></app-canvas>
+      <div class='hide'>
+        <app-canvas [width]=28 [height]=28 [height_scale]=0.25 [width_scale]=0.25 #scaler_canvas>
+        </app-canvas>
+      </div>
+    </div>
+  </div>
+  <app-digit-control [input_canvas]='input_canvas' [noise_canvas]='noise_canvas' [filtered_canvas]='filtered_canvas'
+    [scaler_canvas]='scaler_canvas' [prediction]='prediction'>
+  </app-digit-control>
+  <hr />
+
+  <div class="row padding-top">
+    <div class="col-4">
+      <div class=' row justify-content-center'>
+        <h6>Input with noise</h6>
+      </div>
+      <div class='row justify-content-center'>
+        <app-canvas #noise_canvas></app-canvas>
+      </div>
+    </div>
+    <div class="col-1">
+      <div class='padding-top'>
+        <div class='padding-top'>
+          <h1>&#187;</h1>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class='row justify-content-center'>
+        <h6>Autoencoder output</h6>
+      </div>
+      <div class='row justify-content-center'>
+        <app-canvas #filtered_canvas [height_scale]=4 [width_scale]=4></app-canvas>
+      </div>
+    </div>
+    <div class="col-1">
+      <div class='padding-top'>
+        <div class='padding-top'>
+          <h1>&#187;</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-1">
+      <div class='row justify-content-center'>
+        <h6>Prediction</h6>
+      </div>
+      <div class='row justify-content-center'>
+        <div class='padding-top'>
+          <app-prediction #prediction [digit]='digit'></app-prediction>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

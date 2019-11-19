@@ -1,0 +1,19 @@
+<div class="row justify-content-center">
+  <h5>Choose how much noise you rould like added to the input</h5>
+</div>
+<div class="row justify-content-center">
+  <div class='width-200'>
+    <input type="range" class="custom-range" min="0" max=".01" step="0.001" id="noiseRange"
+      (change)="updateSetting($event)">
+  </div>
+
+</div>
+<div class="row justify-content-center">
+  <div class="col-med">
+    <button class="btn btn-outline-success custom-button" id="save" (click)="processDigit()">Process image</button>
+  </div>
+  <div class="col-med">
+    <button class="btn btn-outline-primary custom-button" id="clear" (click)="clear()">Clear
+      image</button>
+  </div>
+</div>
